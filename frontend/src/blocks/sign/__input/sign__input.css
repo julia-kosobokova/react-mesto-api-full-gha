@@ -1,0 +1,26 @@
+.sign__input {
+    width: 358px;
+    height: 27px;
+    font-size: 14px;
+    line-height: 1.21;
+    font-weight: 400;
+    font-family: 'Inter', Arial, sans-serif;
+    color: #FFF;
+    background-color: black;
+    border: none;
+    border-bottom: 2px solid #CCCCCC;
+    margin: 0 0 30px;
+    padding: 1px 0;
+}
+::-webkit-input-placeholder {
+    color: #CCCCCC;
+}
+:-moz-placeholder {
+    color: #CCCCCC;
+}
+::-moz-placeholder {
+    color: #CCCCCC;
+}
+:-ms-input-placeholder {
+    color: #CCCCCC;
+}

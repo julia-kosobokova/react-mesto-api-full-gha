@@ -1,0 +1,25 @@
+.elements__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 20px;
+}
+
+@media (min-width: 619px) {
+    .elements__list {
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 17px;
+        padding-left: calc((100% - (282px*2 + 17px))/2);
+        padding-right: calc((100% - (282px*2 + 17px))/2);
+    }
+}
+
+@media (min-width: 918px) {
+    .elements__list {
+        grid-template-columns: repeat(3, 1fr);
+        padding-left: calc((100% - (282px*3 + 17px*2))/2);
+        padding-right: calc((100% - (282px*3 + 17px*2))/2);
+    }
+}

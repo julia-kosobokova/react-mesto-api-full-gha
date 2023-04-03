@@ -1,0 +1,17 @@
+.elements {
+  margin: 0 auto;
+  padding: 36px 19px 0;
+}
+
+@media (min-width: 619px) {
+  .elements {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+@media (min-width: 918px) {
+  .elements {
+    padding: 51px 0 0;
+  }
+}

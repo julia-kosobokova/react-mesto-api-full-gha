@@ -1,0 +1,12 @@
+.sign__signin-link {
+    color: #FFFFFF;
+    text-decoration: none;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.sign__signin-link:hover {
+    opacity: 0.6;
+    transition: opacity 0.5s linear 0.2s;
+}

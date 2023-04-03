@@ -1,0 +1,13 @@
+.profile__info {
+    padding-top: 26px;
+    padding-left: 28px;
+    display: flex;
+    justify-content: center;
+}
+
+@media (min-width: 918px) {
+    .profile__info {
+        align-items: baseline;
+        margin-right: auto;
+    }
+}
