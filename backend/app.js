@@ -19,6 +19,7 @@ const app = express();
 const allowedCors = [
   'https://mesto.kosobokova.nomoredomains.work',
   'http://mesto.kosobokova.nomoredomains.work',
+  'http://localhost:3000',
   'http://localhost:3001',
 ];
 
