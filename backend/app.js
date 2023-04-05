@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const { celebrate, Joi } = require('celebrate');
 const { errors } = require('celebrate');
+const cors = require('cors');
 const router = require('./routes');
 
 const { login, createUser } = require('./controllers/users');
@@ -14,6 +15,7 @@ const { URL_VALIDATION_RX } = require('./const');
 const { PORT = 3000 } = process.env;
 
 const app = express();
+app.use(cors());
 
 // Массив доменов, с которых разрешены кросс-доменные запросы
 const allowedCors = [
