@@ -9,6 +9,7 @@ const { login, createUser } = require('./controllers/users');
 const auth = require('./middlewares/auth');
 const { NotFoundError } = require('./errors/not-found-error');
 const { errorHandler } = require('./middlewares/error-handler');
+const { requestLogger, errorLogger } = require('./middlewares/logger');
 const { URL_VALIDATION_RX } = require('./const');
 
 // Слушаем 3000 порт
@@ -57,6 +58,7 @@ mongoose.connect('mongodb://localhost:27017/mestodb', {
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(requestLogger); // подключаем логгер запросов
 
 // Роуты, которым не нужна авторизация
 app.post('/signin', celebrate({
@@ -83,6 +85,7 @@ app.use((req, res, next) => {
   next(new NotFoundError('Страница по указанному маршруту не найдена'));
 });
 
+app.use(errorLogger);
 app.use(errors()); // обработчик ошибок celebrate
 app.use(errorHandler);
 
