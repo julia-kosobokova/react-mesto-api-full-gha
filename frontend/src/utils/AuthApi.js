@@ -1,3 +1,5 @@
+import { BASE_URL } from "../const";
+
 class AuthApi {
   constructor(options) {
     this._options = options;
@@ -57,11 +59,8 @@ class AuthApi {
 }
 
 export const authApi = new AuthApi({
-  // baseUrl: "https://auth.nomoreparties.co",
-  baseUrl: "http://localhost:3000",
-  // baseUrl: "http://mesto.kosobokova.nomoredomains.work",
+  baseUrl: BASE_URL,
   headers: {
-    // authorization: "2e553a64-7c1d-4473-abd0-835bab4139ba",
     "Authorization": `Bearer ${localStorage.getItem('token')}`,
     "Content-Type": "application/json",
   },
