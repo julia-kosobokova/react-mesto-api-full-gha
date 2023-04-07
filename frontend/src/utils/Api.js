@@ -102,10 +102,11 @@ class Api {
 
 export const api = new Api({
 // baseUrl: "https://mesto.nomoreparties.co/v1/cohort-46",
-// baseUrl: "http://localhost:3000/",
-baseUrl: "http://api.mesto.kosobokova.nomoredomains.work",
+baseUrl: "http://localhost:3000",
+// baseUrl: "http://api.mesto.kosobokova.nomoredomains.work",
   headers: {
     // authorization: "2e553a64-7c1d-4473-abd0-835bab4139ba",
+    "Authorization": `Bearer ${localStorage.getItem('token')}`,
     "Content-Type": "application/json",
   },
 });

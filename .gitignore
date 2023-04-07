@@ -16,17 +16,17 @@ node_modules
 .idea
 .vscode
 
-# dependencies
+# Dependencies
 .pnp
 .pnp.js
 
-# testing
+# Testing
 coverage
 
-# production
+# Production
 build
 
-# misc
+# Misc
 .DS_Store
 .env.local
 .env.development.local
@@ -37,3 +37,6 @@ yarn-debug.log*
 yarn-error.log*
 
 *.log
+
+# Environment variables
+.env

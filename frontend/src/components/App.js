@@ -71,7 +71,7 @@ function App() {
     const initUserInfo = () => {
       api
         .getUserInfo()
-        .then((info) => {
+        .then(({data: info}) => {
           setCurrentUser((previousUserState) => {
             return {
               ...previousUserState,
@@ -167,7 +167,7 @@ function App() {
 
   React.useEffect(() => {
     Promise.all([api.getInitialCards()])
-      .then(([initialCards]) => {
+      .then(([{data: initialCards}]) => {
         setCards(initialCards);
       })
       .catch((err) => {
@@ -183,7 +183,7 @@ function App() {
       // Отправляем запрос в API и получаем обновлённые данные карточки
       api
         .addLike(card._id)
-        .then((newCard) => {
+        .then(({data: newCard}) => {
           setCards((cards) =>
             cards.map((c) => (c._id === card._id ? newCard : c))
           );
@@ -194,7 +194,7 @@ function App() {
     } else {
       api
         .removeLike(card._id)
-        .then((newCard) => {
+        .then(({data: newCard}) => {
           setCards((cards) =>
             cards.map((c) => (c._id === card._id ? newCard : c))
           );
@@ -227,7 +227,7 @@ function App() {
   function handleAddPlaceSubmit(card) {
     api
       .saveNewCard(card)
-      .then((newCard) => {
+      .then(({data: newCard}) => {
         setCards([newCard, ...cards]);
         closeAllPopups();
       })
