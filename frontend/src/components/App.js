@@ -276,13 +276,17 @@ function App() {
       .then((data) => {
         setCurrentUser({
           ...currentUser,
-          userEmail: email,
+          id: data.user._id,
+          userEmail: data.user.email,
           userPassword: password,
+          userName: data.user.name,
+          userDescription: data.user.about,
+          userAvatar: data.user.avatar,
         });
 
         if (data.token) {
-          setLoggedIn(true);
           localStorage.setItem("token", data.token);
+          setLoggedIn(true);
           navigate("/", { replace: true });
         }
         closeAllPopups();
@@ -295,6 +299,7 @@ function App() {
   // Выход пользователя
   function signOut() {
     localStorage.removeItem("token");
+    setLoggedIn(false);
     navigate("/sign-in", { replace: true });
   }
 

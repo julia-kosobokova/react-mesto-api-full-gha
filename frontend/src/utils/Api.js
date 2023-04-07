@@ -16,6 +16,7 @@ class Api {
 
   // Загрузка карточек с сервера
   getInitialCards() {
+    console.log(this._options.headers);
     return fetch(this._options.baseUrl + "/cards", {
       headers: this._options.headers,
     }).then((res) => {
