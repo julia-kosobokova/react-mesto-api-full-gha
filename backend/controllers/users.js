@@ -152,8 +152,6 @@ const login = (req, res, next) => {
       res.send({
         user,
         token,
-        env: process.env.NODE_ENV,
-        mestoTest: process.env.MESTO_TEST,
       });
     })
     .catch(next);
