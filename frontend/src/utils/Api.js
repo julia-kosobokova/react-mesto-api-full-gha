@@ -8,7 +8,7 @@ class Api {
   //Загрузка информации о пользователе с сервера
   getUserInfo() {
     return fetch(this._options.baseUrl + "/users/me", {
-      headers: this._options.headers,
+      headers: {...this._options.headers, "Authorization": `Bearer ${localStorage.getItem('token')}`,},
     }).then((res) => {
       return this._getResponseData(res);
     });
@@ -18,7 +18,7 @@ class Api {
   getInitialCards() {
     console.log(this._options.headers);
     return fetch(this._options.baseUrl + "/cards", {
-      headers: this._options.headers,
+      headers: {...this._options.headers, "Authorization": `Bearer ${localStorage.getItem('token')}`,},
     }).then((res) => {
       return this._getResponseData(res);
     });
@@ -28,7 +28,7 @@ class Api {
   saveUserInfo(userInfo) {
     return fetch(this._options.baseUrl + "/users/me", {
       method: "PATCH",
-      headers: this._options.headers,
+      headers: {...this._options.headers, "Authorization": `Bearer ${localStorage.getItem('token')}`,},
       body: JSON.stringify({
         name: userInfo.name,
         about: userInfo.description,
@@ -42,7 +42,7 @@ class Api {
   saveNewCard(card) {
     return fetch(this._options.baseUrl + "/cards", {
       method: "POST",
-      headers: this._options.headers,
+      headers: {...this._options.headers, "Authorization": `Bearer ${localStorage.getItem('token')}`,},
       body: JSON.stringify({
         name: card.name,
         link: card.link,
@@ -56,7 +56,7 @@ class Api {
   deleteCard(cardId) {
     return fetch(this._options.baseUrl + "/cards/" + cardId, {
       method: "DELETE",
-      headers: this._options.headers,
+      headers: {...this._options.headers, "Authorization": `Bearer ${localStorage.getItem('token')}`,},
     }).then((res) => {
       return this._getResponseData(res);
     });
@@ -66,7 +66,7 @@ class Api {
   addLike(cardId) {
     return fetch(this._options.baseUrl + "/cards/" + cardId + "/likes", {
       method: "PUT",
-      headers: this._options.headers,
+      headers: {...this._options.headers, "Authorization": `Bearer ${localStorage.getItem('token')}`,},
     }).then((res) => {
       return this._getResponseData(res);
     });
@@ -76,7 +76,7 @@ class Api {
   removeLike(cardId) {
     return fetch(this._options.baseUrl + "/cards/" + cardId + "/likes", {
       method: "DELETE",
-      headers: this._options.headers,
+      headers: {...this._options.headers, "Authorization": `Bearer ${localStorage.getItem('token')}`,},
     }).then((res) => {
       return this._getResponseData(res);
     });
@@ -86,7 +86,7 @@ class Api {
   updateUserAvatar(avatar) {
     return fetch(this._options.baseUrl + "/users/me/avatar", {
       method: "PATCH",
-      headers: this._options.headers,
+      headers: {...this._options.headers, "Authorization": `Bearer ${localStorage.getItem('token')}`,},
       body: JSON.stringify({
         avatar,
       }),
