@@ -6,6 +6,7 @@ const { NotFoundError } = require('../errors/not-found-error');
 const { ValidationError } = require('../errors/validation-error');
 const { ConflictError } = require('../errors/conflict-error');
 const { UnauthorizedError } = require('../errors/unauthorized-error');
+const { JWT_SECRET } = require('../const');
 
 const SUCCESS = 200;
 const SUCCESS_CREATED = 201;
@@ -147,7 +148,7 @@ const login = (req, res, next) => {
       return user;
     }))
     .then((user) => {
-      const token = jwt.sign({ _id: user._id }, 'super-strong-secret', { expiresIn: '7d' });
+      const token = jwt.sign({ _id: user._id }, JWT_SECRET, { expiresIn: '7d' });
       res.send({ user, token });
     })
     .catch(next);
