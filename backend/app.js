@@ -1,10 +1,10 @@
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const { celebrate, Joi } = require('celebrate');
 const { errors } = require('celebrate');
 const cors = require('cors');
 const router = require('./routes');
-require('dotenv').config();
 
 const { login, createUser } = require('./controllers/users');
 const auth = require('./middlewares/auth');
