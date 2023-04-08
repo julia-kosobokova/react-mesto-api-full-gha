@@ -4,4 +4,4 @@ const JWT_SECRET = (process.env.NODE_ENV === 'production' && process.env.JWT_SEC
 module.exports = {
   URL_VALIDATION_RX,
   JWT_SECRET,
- };
+};
