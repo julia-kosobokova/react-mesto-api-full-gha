@@ -149,7 +149,12 @@ const login = (req, res, next) => {
     }))
     .then((user) => {
       const token = jwt.sign({ _id: user._id }, JWT_SECRET, { expiresIn: '7d' });
-      res.send({ user, token, env: process.env.NODE_ENV });
+      res.send({
+        user,
+        token,
+        env: process.env.NODE_ENV,
+        mestoTest: process.env.MESTO_TEST,
+      });
     })
     .catch(next);
 };
