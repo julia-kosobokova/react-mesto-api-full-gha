@@ -8,7 +8,7 @@
 
 ## Ссылки на проект
 
-IP-адрес 84.201.154.229
+IP 84.201.154.229
 
 Frontend https://mesto.kosobokova.nomoredomains.work/
 
