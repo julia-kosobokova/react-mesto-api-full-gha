@@ -60,6 +60,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(requestLogger); // подключаем логгер запросов
 
+// Краш-тест сервера
+app.get('/crash-test', () => {
+  setTimeout(() => {
+    throw new Error('Сервер сейчас упадёт');
+  }, 0);
+});
+
 // Роуты, которым не нужна авторизация
 app.post('/signin', celebrate({
   body: Joi.object().keys({
